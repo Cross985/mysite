@@ -1,0 +1,15 @@
+<h1>{{ song.song_title }}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message}}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:save_song' song.id %}" method="post">
+    {% csrf_token %}
+    <input type="radio" name="name" value="1" id="1"/>
+    <label>Change song title</label>
+    <input type="radio" name="name" value="2" id="2"/>
+    <label>Don't change song title</label>
+    <br>
+    <input type="submit" Value="save"/>
+</form>
